@@ -12,166 +12,390 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1f1f1f;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0067b8;
             letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: white;
+            color: #262626;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: #0067b8;
         }
 
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0078d4 0%, #5a5fd8 100%);
             color: white;
-            padding: 150px 2rem 100px;
-            text-align: center;
+            padding: 180px 3rem 120px;
             margin-top: 60px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="white" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            animation: fadeInUp 1s ease;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        .hero-text .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s both;
+            font-weight: 400;
         }
 
-        .cta-button {
-            display: inline-block;
+        .hero-image {
+            position: relative;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image svg {
+            width: 80%;
+            height: 80%;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
             background: white;
-            color: #667eea;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            color: #0067b8;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 2px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s both;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .btn-primary:hover {
+            background: #f2f2f2;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 0.9rem 2rem;
+            border: 2px solid white;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         h2 {
             font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2d3748;
+            margin-bottom: 1rem;
+            color: #1f1f1f;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #616161;
+            margin-bottom: 4rem;
         }
 
         .services {
-            background: #f7fafc;
+            background: #faf9f8;
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 1px solid #e0e0e0;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0078d4 0%, #5a5fd8 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: #667eea;
+            color: #1f1f1f;
+            font-weight: 600;
         }
 
         .service-card p {
-            color: #4a5568;
+            color: #616161;
             line-height: 1.7;
+            font-size: 0.95rem;
         }
 
-        .about {
+        .feature-section {
             background: white;
         }
 
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #4a5568;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .feature-grid:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-grid:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-image {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-radius: 8px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .feature-image svg {
+            width: 70%;
+            height: 70%;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1f1f1f;
+            font-weight: 600;
+        }
+
+        .feature-content p {
+            color: #616161;
             line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonials {
+            background: #faf9f8;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            background: white;
+            padding: 3.5rem;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: #0078d4;
+            line-height: 0.5;
+            margin-bottom: 1.5rem;
+            opacity: 0.4;
+        }
+
+        .testimonial-text {
+            color: #1f1f1f;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .testimonial-author strong {
+            color: #1f1f1f;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .testimonial-author span {
+            color: #616161;
+            font-size: 0.95rem;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d1d1;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: #0078d4;
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid #e0e0e0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #0078d4;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: #f2f2f2;
+            border-color: #0078d4;
+        }
+
+        .carousel-arrow.prev {
+            left: -60px;
+        }
+
+        .carousel-arrow.next {
+            right: -60px;
         }
 
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0078d4 0%, #5a5fd8 100%);
             color: white;
             text-align: center;
         }
@@ -188,47 +412,96 @@
         .contact-info a {
             color: white;
             text-decoration: none;
-            border-bottom: 2px solid white;
-            transition: opacity 0.3s;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            transition: border-color 0.3s;
         }
 
         .contact-info a:hover {
-            opacity: 0.8;
+            border-bottom-color: white;
         }
 
         footer {
-            background: #2d3748;
-            color: white;
+            background: #f2f2f2;
+            color: #616161;
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
+            font-size: 0.9rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+
+            .carousel-arrow.next {
+                right: 10px;
             }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
+            nav {
+                padding: 0 1.5rem;
             }
 
-            .nav-links {
-                gap: 1rem;
+            .hero {
+                padding: 140px 1.5rem 80px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 60px 0;
             }
 
             h2 {
                 font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -239,26 +512,51 @@
             <div class="logo">Excellore</div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#features">Solutions</a></li>
+                <li><a href="#testimonials">Clients</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Excellore</h1>
-        <p class="tagline">Turning Ideas into Impact</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Turning Ideas into Impact</h1>
+                <p class="tagline">Innovative software solutions that empower your business to thrive in the digital age.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">Get Started</a>
+                    <a href="#services" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="80" width="120" height="140" rx="8" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="2"/>
+                    <rect x="190" y="50" width="160" height="200" rx="8" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+                    <circle cx="270" cy="150" r="40" fill="rgba(255,255,255,0.15)"/>
+                    <path d="M245 150 L260 165 L295 130" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="70" y1="110" x2="140" y2="110" stroke="white" stroke-width="3" opacity="0.6"/>
+                    <line x1="70" y1="140" x2="120" y2="140" stroke="white" stroke-width="3" opacity="0.6"/>
+                    <line x1="70" y1="170" x2="130" y2="170" stroke="white" stroke-width="3" opacity="0.6"/>
+                </svg>
+            </div>
+        </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
             <h2>Our Services</h2>
+            <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
             <div class="service-grid">
                 <div class="service-card">
                     <div class="service-icon">💻</div>
                     <h3>Custom Software Development</h3>
-                    <p>We build tailored software solutions that perfectly fit your business needs and scale with your growth.</p>
+                    <p>Build tailored software solutions that perfectly fit your business needs and scale with your growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Solutions</h3>
+                    <p>Intelligent AI-powered applications that automate processes and unlock new possibilities for your business.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📱</div>
@@ -276,16 +574,6 @@
                     <p>Scalable cloud infrastructure and migration services to power your digital transformation.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Solutions</h3>
-                    <p>Intelligent AI-powered applications that automate processes and unlock new possibilities for your business.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>Consulting</h3>
-                    <p>Expert guidance on technology strategy, architecture, and digital innovation for your business.</p>
-                </div>
-                <div class="service-card">
                     <div class="service-icon">🔧</div>
                     <h3>Support & Maintenance</h3>
                     <p>Ongoing support and maintenance to keep your software running smoothly and efficiently.</p>
@@ -294,11 +582,98 @@
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="features" class="feature-section">
         <div class="container">
-            <h2>About Excellore</h2>
-            <div class="about-content">
-                <p>At Excellore, we believe that every great achievement starts with an idea. Our mission is to transform your vision into reality through innovative software solutions that create lasting impact. With a team of passionate developers and designers, we craft digital experiences that drive growth and empower businesses to thrive in the modern world.</p>
+            <h2>Why Choose Excellore</h2>
+            <p class="section-subtitle">Driving innovation through technology and expertise</p>
+            
+            <div class="feature-grid">
+                <div class="feature-image">
+                    <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="150" cy="125" r="80" stroke="#0078d4" stroke-width="3" opacity="0.3"/>
+                        <circle cx="150" cy="125" r="50" fill="#0078d4" opacity="0.2"/>
+                        <path d="M150 75 L150 125 L190 145" stroke="#0078d4" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="150" cy="125" r="8" fill="#0078d4"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Rapid Development</h3>
+                    <p>We leverage modern frameworks and agile methodologies to deliver high-quality solutions faster. Our streamlined development process ensures your project moves from concept to reality efficiently without compromising on quality.</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-image">
+                    <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="60" y="80" width="80" height="90" rx="8" fill="#0078d4" opacity="0.2"/>
+                        <rect x="160" y="50" width="80" height="120" rx="8" fill="#5a5fd8" opacity="0.3"/>
+                        <rect x="110" y="110" width="80" height="60" rx="8" fill="#0078d4" opacity="0.4"/>
+                        <path d="M60 170 L240 170" stroke="#0078d4" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Scalable Architecture</h3>
+                    <p>Our solutions are built with scalability in mind, ensuring your software can grow alongside your business. From startups to enterprises, we design systems that handle increased demand seamlessly.</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-image">
+                    <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="150" cy="125" r="60" stroke="#0078d4" stroke-width="3"/>
+                        <path d="M120 125 L140 145 L180 105" stroke="#0078d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="150" cy="60" r="15" fill="#5a5fd8" opacity="0.3"/>
+                        <circle cx="210" cy="125" r="15" fill="#5a5fd8" opacity="0.3"/>
+                        <circle cx="150" cy="190" r="15" fill="#5a5fd8" opacity="0.3"/>
+                        <circle cx="90" cy="125" r="15" fill="#5a5fd8" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3>Quality Assurance</h3>
+                    <p>We maintain the highest standards of quality through rigorous testing and code reviews. Every solution we deliver is thoroughly vetted to ensure reliability, security, and optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p class="section-subtitle">Trusted by businesses worldwide</p>
+            <div class="testimonial-carousel">
+                <button class="carousel-arrow prev" onclick="moveCarousel(-1)">‹</button>
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Excellore transformed our outdated system into a modern, efficient platform. Their attention to detail and commitment to quality exceeded our expectations.</p>
+                        <div class="testimonial-author">
+                            <strong>Sarah Johnson</strong>
+                            <span>CEO, TechVision Inc.</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">The AI solution they developed has automated 70% of our manual processes. The ROI was evident within the first quarter. Highly recommended!</p>
+                        <div class="testimonial-author">
+                            <strong>Michael Chen</strong>
+                            <span>Operations Director, DataFlow Systems</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Professional, responsive, and innovative. Excellore delivered our mobile app on time and within budget. Their ongoing support has been exceptional.</p>
+                        <div class="testimonial-author">
+                            <strong>Emily Rodriguez</strong>
+                            <span>Founder, HealthTrack Pro</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-arrow next" onclick="moveCarousel(1)">›</button>
+            </div>
+            <div class="carousel-nav">
+                <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                <span class="carousel-dot" onclick="goToSlide(2)"></span>
             </div>
         </div>
     </section>
@@ -308,7 +683,7 @@
             <h2>Let's Build Something Amazing</h2>
             <div class="contact-info">
                 <p>Ready to turn your ideas into impact?</p>
-                <p style="margin-top: 1rem;">Email us at <a href="mailto:info@excellore.com">info@excellore.com</a></p>
+                <p style="margin-top: 1.5rem;">Email us at <a href="mailto:info@excellore.com">info@excellore.com</a></p>
             </div>
         </div>
     </section>
@@ -316,5 +691,34 @@
     <footer>
         <p>&copy; 2025 Excellore. All rights reserved.</p>
     </footer>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const track = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+    </script>
 </body>
 </html>
